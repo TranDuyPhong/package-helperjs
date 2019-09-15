@@ -1,6 +1,6 @@
 {
-  "name": "@helperjs/core",
-  "version": "1.0.0",
+  "name": "@windsn/helperjs",
+  "version": "1.0.1",
   "description": "HelperJS",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,6 @@
   "keywords": [
     "HelperJS"
   ],
-  "author": "PhongSn",
+  "author": "WindSn",
   "license": "ISC"
 }

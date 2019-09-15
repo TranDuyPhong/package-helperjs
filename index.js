@@ -1,5 +1,7 @@
-'use-trict';
+const Common = require('./common');
+const Separation = require('./separation');
 
-module.exports = function helperJS() {
-    console.log('HelperJS');
-}
+module.exports = {
+    ...Common,
+    ...Separation,
+};
