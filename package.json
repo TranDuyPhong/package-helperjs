@@ -1,6 +1,6 @@
 {
   "name": "@windsn/helperjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "HelperJS",
   "main": "index.js",
   "scripts": {
