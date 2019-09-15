@@ -1,7 +1,11 @@
 const ASCII = require('./ascii');
-const WObject = require('./object');
+const Primitive = require('./primitive');
+const Data = require('./data');
+const UI = require('./ui');
 
 module.exports = {
     ...ASCII,
-    ...WObject
+    ...Primitive,
+    ...Data,
+    ...UI
 };

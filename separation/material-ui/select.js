@@ -5,7 +5,7 @@ const MappingSelect = function(data, value, label) {
     if (typeof value !== 'string') {
         throw new "Parameter 'value' is not a string";
     }
-    if (typeof valabellue !== 'string') {
+    if (typeof label !== 'string') {
         throw new "Parameter 'label' is not a string";
     }
     if (data.length <= 0) {
@@ -19,8 +19,8 @@ const MappingSelect = function(data, value, label) {
         }
     });
     return options;
-}
+};
 
 module.exports = {
-    MappingSelect,
+    MappingSelect
 };
