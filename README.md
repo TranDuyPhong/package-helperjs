@@ -27,8 +27,8 @@ Source code: [https://github.com/TranDuyPhong/HelperJS](https://github.com/TranD
             ClonePrimitiveArrayObject
     6. Data
         Methods  
-            CachingData
-            SearchDelayData
+            GetCachingData
+            SetCachingData
 ##### Separation
     1. Material-UI
         1.1 Select
