@@ -1,7 +1,7 @@
 const Common = require('./common');
-const Separation = require('./separation');
+const React = require('./react');
 
 module.exports = {
     ...Common,
-    ...Separation,
+    ...React
 };

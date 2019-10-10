@@ -4,10 +4,15 @@ Source code: [https://github.com/TranDuyPhong/HelperJS](https://github.com/TranD
 ### Modules in HelperJS
 ##### Common
     1. Primitive
-        1.1 ArrayObject
+        1.1 Common
+            Methods
+                HandlePrimitiveValue
+                HandlePrimitiveArray
+                HandlePrimtiveObject
+        1.2 ArrayObject
             Methods
                 ClonePrimitiveArrayObject
-        1.2 Object
+        1.3 Object
             Methods
                 ClonePrimitiveObject        
     2. UI
@@ -19,24 +24,30 @@ Source code: [https://github.com/TranDuyPhong/HelperJS](https://github.com/TranD
         Methods
             ASCIIUp
             ASCIILw
-    4. Object  
-        Methods
-            ClonePrimitiveObject
-    5. ArrayObject  
-        Methods  
-            ClonePrimitiveArrayObject
-    6. Data
+    4. Data
         Methods  
             GetCachingData
             SetCachingData
-##### Separation
-    1. Material-UI
-        1.1 Select
+            MapFormToModelData
+            MapFormToModelDataWithFile
+    5. Url
+        Methods
+            MapModelToUrl
+    6. Validate
+        Methods
+            HasValue
+            TryParseValue    
+    7. Global
+        Methods
+            FormatUnsignedToAccented           
+##### React
+    1. Redux
+        1.1 Dispatch
             Methods  
-                MappingSelect
-        1.2 Table        
+                CombineDispatchToProps
+        1.2 State        
             Methods
-                RenderTable
+                CombineStateToProps
 
 ### Usage
 There are 2 ways you can use it
