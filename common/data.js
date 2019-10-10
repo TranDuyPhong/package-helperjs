@@ -35,7 +35,9 @@ const MapFormToModelData = (form) => {
         for (let i = 0; i < form.length; i++) {
             const field = form[i];
             if (field) {
-				modelData[field.name] = field.value;
+				if (field.name) {
+                    modelData[field.name] = field.value;
+                }
             }
         }
     }
@@ -50,18 +52,20 @@ const MapFormToModelDataWithFile = (form) => {
         for (let i = 0; i < form.length; i++) {
             const field = form[i];
             if (field) {
-				switch (field.type) {
-					case 'file':
-						if (field.files) {
-							modelData[field.name] = field.files[0];
-						} else {
-							modelData[field.name] = null;
-						}
-						break;
-					default:
-						modelData[field.name] = field.value;
-						break;
-				}
+				if (field.name) {
+                    switch (field.type) {
+                        case 'file':
+                            if (field.files) {
+                                modelData[field.name] = field.files[0];
+                            } else {
+                                modelData[field.name] = null;
+                            }
+                            break;
+                        default:
+                            modelData[field.name] = field.value;
+                            break;
+                    }
+                }
             }
         }
     }
