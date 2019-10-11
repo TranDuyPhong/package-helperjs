@@ -30,6 +30,7 @@ Source code: [https://github.com/TranDuyPhong/HelperJS](https://github.com/TranD
             SetCachingData
             MapFormToModelData
             MapFormToModelDataWithFile
+			MapFormToModelDataOnlyFile
     5. Url
         Methods
             MapModelToUrl

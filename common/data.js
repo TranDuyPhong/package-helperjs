@@ -72,9 +72,35 @@ const MapFormToModelDataWithFile = (form) => {
     return modelData;
 };
 
+const MapFormToModelDataOnlyFile = (form) => {
+    let modelData = {};
+    if (form === undefined || form === null || typeof form === 'undefined') {
+        throw new 'Form invalid';
+    } else {
+        for (let i = 0; i < form.length; i++) {
+            const field = form[i];
+            if (field) {
+				if (field.name) {
+                    switch (field.type) {
+                        case 'file':
+                            if (field.files) {
+                                modelData[field.name] = field.files[0];
+                            } else {
+                                modelData[field.name] = null;
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+    }
+    return modelData;
+};
+
 module.exports = {
     GetCachingData,
     SetCachingData,
     MapFormToModelData,
-    MapFormToModelDataWithFile
+    MapFormToModelDataWithFile,
+	MapFormToModelDataOnlyFile
 };
