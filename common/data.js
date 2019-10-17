@@ -36,7 +36,19 @@ const MapFormToModelData = (form) => {
             const field = form[i];
             if (field) {
 				if (field.name) {
-                    modelData[field.name] = field.value;
+					switch (field.type) {
+						case 'radio':
+							if (field.checked === true) {
+								modelData[field.name] = field.value;
+							}
+							break;
+						case 'checkbox':
+							modelData[field.name] = field.checked;
+							break;
+						default:
+						    modelData[field.name] = field.value;
+							break;
+					}
                 }
             }
         }
@@ -61,9 +73,17 @@ const MapFormToModelDataWithFile = (form) => {
                                 modelData[field.name] = null;
                             }
                             break;
-                        default:
-                            modelData[field.name] = field.value;
-                            break;
+						case 'radio':
+							if (field.checked === true) {
+								modelData[field.name] = field.value;
+							}
+							break;
+						case 'checkbox':
+							modelData[field.name] = field.checked;
+							break;
+						default:
+						    modelData[field.name] = field.value;
+							break;
                     }
                 }
             }
