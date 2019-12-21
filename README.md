@@ -31,6 +31,10 @@ Source code: [https://github.com/TranDuyPhong/HelperJS](https://github.com/TranD
             MapFormToModelData
             MapFormToModelDataWithFile
 			MapFormToModelDataOnlyFile
+            HandleTrimWhiteSpaceValue
+            HandleTrimWhiteSpaceArray
+            HandleTrimWhiteSpaceObject
+            TrimWhiteSpaceData
     5. Url
         Methods
             MapModelToUrl
