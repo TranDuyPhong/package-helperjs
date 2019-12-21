@@ -138,9 +138,11 @@ const HandleTrimWhiteSpaceValue = function(value, type) {
                 if (type === 'normal') {
                     val = value.trim();
                 } else if (type === 'html') {
-                    val = value.split('&nbsp;').join(' ').trim();
+                    val = value.split('&nbsp;').join(' ');
+					val = val.trim();
                 } else {
-                    val = value.split('&nbsp;').join(' ').trim();
+                    val = value.split('&nbsp;').join(' ');
+					val = val.trim();
                 }
                 break;
             case 'object':
