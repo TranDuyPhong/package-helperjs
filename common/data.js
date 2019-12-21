@@ -138,10 +138,9 @@ const HandleTrimWhiteSpaceValue = function(value, type) {
                 if (type === 'normal') {
                     val = value.trim();
                 } else if (type === 'html') {
-                    val = value.replace('&nbsp;', '');
+                    val = value.split('&nbsp;').join(' ').trim();
                 } else {
-                    val = value.trim();
-                    val = value.replace('&nbsp;', '');
+                    val = value.split('&nbsp;').join(' ').trim();
                 }
                 break;
             case 'object':
@@ -182,6 +181,8 @@ const TrimWhiteSpaceData = (data, type) => {
     } else if (typeof data === 'object') {
         formatData = {};
         formatData = HandleTrimWhiteSpaceObject(data, type);
+    } else if (typeof data === 'string') {
+        formatData = HandleTrimWhiteSpaceValue(data, type);
     }
     return formatData;
 }
