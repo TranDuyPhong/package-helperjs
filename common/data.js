@@ -117,10 +117,76 @@ const MapFormToModelDataOnlyFile = (form) => {
     return modelData;
 };
 
+const HandlePrimitiveArray = function(array) {
+    let arr = [];
+    if (array.length <= 0) {
+        return arr;
+    }
+    for (let item in array) {
+        arr[item] = HandlePrimitiveValue(array[item]);
+    }
+    return arr;
+};
+
+const HandleTrimWhiteSpaceValue = function(value) {
+    let val = undefined;
+    if (Array.isArray(value)) {
+        val = HandleTrimWhiteSpaceArray(value);
+    } else {
+        switch (typeof value) {
+            case 'string':
+                val = value.trim();
+                break;
+            case 'object':
+                val = HandleTrimWhiteSpaceObject(value);
+                break;
+            default:
+                val = value;
+                break;    
+        }
+    }
+    return val;
+};
+
+const HandleTrimWhiteSpaceArray = (array) => {
+    let arr = [];
+    if (array.length <= 0) {
+        return arr;
+    }
+    for (let item in array) {
+        arr[item] = HandleTrimWhiteSpaceValue(array[item]);
+    }
+    return arr;
+}
+
+const HandleTrimWhiteSpaceObject = (object) => {
+    let obj = {};
+    for (let item in object) {
+        obj[item] = HandleTrimWhiteSpaceValue(object[item]);
+    }
+    return obj;
+}
+
+const TrimWhiteSpaceData = (data) => {
+    let formatData = null;
+    if (Array.isArray(data)) {
+        formatData = [];
+        formatData = HandleTrimWhiteSpaceArray(data);
+    } else if (typeof data === 'object') {
+        formatData = {};
+        formatData = HandleTrimWhiteSpaceObject(data);
+    }
+    return formatData;
+}
+
 module.exports = {
     GetCachingData,
     SetCachingData,
     MapFormToModelData,
     MapFormToModelDataWithFile,
-	MapFormToModelDataOnlyFile
+    MapFormToModelDataOnlyFile,
+    TrimWhiteSpaceData,
+    HandleTrimWhiteSpaceValue,
+    HandleTrimWhiteSpaceArray,
+    HandleTrimWhiteSpaceObject
 };
