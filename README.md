@@ -29,8 +29,8 @@ Source code: [https://github.com/TranDuyPhong/HelperJS](https://github.com/TranD
             GetCachingData
             SetCachingData
             MapFormToModelData
+            MapFormToModelDataOnlyFile
             MapFormToModelDataWithFile
-			MapFormToModelDataOnlyFile
             HandleTrimWhiteSpaceValue
             HandleTrimWhiteSpaceArray
             HandleTrimWhiteSpaceObject
