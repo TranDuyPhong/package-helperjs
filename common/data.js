@@ -128,17 +128,24 @@ const HandlePrimitiveArray = function(array) {
     return arr;
 };
 
-const HandleTrimWhiteSpaceValue = function(value) {
+const HandleTrimWhiteSpaceValue = function(value, type) {
     let val = undefined;
     if (Array.isArray(value)) {
-        val = HandleTrimWhiteSpaceArray(value);
+        val = HandleTrimWhiteSpaceArray(value, type);
     } else {
         switch (typeof value) {
             case 'string':
-                val = value.trim();
+                if (type === 'normal') {
+                    val = value.trim();
+                } else if (type === 'html') {
+                    val = value.replace('&nbsp;', '');
+                } else {
+                    val = value.trim();
+                    val = value.replace('&nbsp;', '');
+                }
                 break;
             case 'object':
-                val = HandleTrimWhiteSpaceObject(value);
+                val = HandleTrimWhiteSpaceObject(value, type);
                 break;
             default:
                 val = value;
@@ -148,33 +155,33 @@ const HandleTrimWhiteSpaceValue = function(value) {
     return val;
 };
 
-const HandleTrimWhiteSpaceArray = (array) => {
+const HandleTrimWhiteSpaceArray = (array, type) => {
     let arr = [];
     if (array.length <= 0) {
         return arr;
     }
     for (let item in array) {
-        arr[item] = HandleTrimWhiteSpaceValue(array[item]);
+        arr[item] = HandleTrimWhiteSpaceValue(array[item], type);
     }
     return arr;
 }
 
-const HandleTrimWhiteSpaceObject = (object) => {
+const HandleTrimWhiteSpaceObject = (object, type) => {
     let obj = {};
     for (let item in object) {
-        obj[item] = HandleTrimWhiteSpaceValue(object[item]);
+        obj[item] = HandleTrimWhiteSpaceValue(object[item], type);
     }
     return obj;
 }
 
-const TrimWhiteSpaceData = (data) => {
+const TrimWhiteSpaceData = (data, type) => {
     let formatData = null;
     if (Array.isArray(data)) {
         formatData = [];
-        formatData = HandleTrimWhiteSpaceArray(data);
+        formatData = HandleTrimWhiteSpaceArray(data, type);
     } else if (typeof data === 'object') {
         formatData = {};
-        formatData = HandleTrimWhiteSpaceObject(data);
+        formatData = HandleTrimWhiteSpaceObject(data, type);
     }
     return formatData;
 }
